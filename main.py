@@ -21,6 +21,15 @@ from transformers import pipeline, AutoModelForSeq2SeqLM, AutoTokenizer
 from bs4 import BeautifulSoup
 
 app = FastAPI()
+from fastapi.middleware.cors import CORSMiddleware
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # you can later restrict to your React domain if you wish
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 logging.basicConfig(level=logging.INFO)
 
